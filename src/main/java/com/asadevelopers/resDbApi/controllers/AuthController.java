@@ -1,5 +1,6 @@
 package com.asadevelopers.resDbApi.controllers;
 
+import com.asadevelopers.resDbApi.Constraints;
 import com.asadevelopers.resDbApi.authConfigs.JwtUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class AuthController {
         String username = credentials.get("username");
         String password = credentials.get("password");
 
-        if (FIXED_USERNAME.equals(username) && FIXED_PASSWORD.equals(password)) {
+        if (Constraints.apiUsername.equals(username) && Constraints.apiPassword.equals(password)) {
             String token = jwtUtil.generateToken("api");
         System.out.println(token);
             return ResponseEntity.ok(Map.of("token", token));

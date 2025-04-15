@@ -19,13 +19,14 @@ public class AuthController {
     }
 
     @GetMapping("/login")
-    public ResponseEntity<?> login(Map<String ,String> credentials) {
+    public ResponseEntity<?> login(@RequestBody Map<String ,String> credentials) {
+
+
         String username = credentials.get("username");
         String password = credentials.get("password");
 
         if (Constraints.apiUsername.equals(username) && Constraints.apiPassword.equals(password)) {
-            String token = jwtUtil.generateToken("api");
-        System.out.println(token);
+            String token = jwtUtil.generateToken(Constraints.apiUsername);
             return ResponseEntity.ok(Map.of("token", token));
         }
 

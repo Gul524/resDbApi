@@ -18,6 +18,7 @@ target/
 *.iws
 *.iml
 *.ipr
+*.properties
 
 ### NetBeans ###
 /nbproject/private/
@@ -33,4 +34,5 @@ build/
 .vscode/
 
 
-!**/src/main/java/com.asadevelopers.resDbaPI/Constraints
+src/main/java/com/asadevelopers/resDbApi/Constraints.java
+src/main/java/com/asadevelopers/resDbApi/resources/application.properties

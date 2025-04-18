@@ -30,6 +30,11 @@ public class MangementController {
         return cp.getAll();
     }
 
+    @PostMapping("/deleteCompany/{id}")
+    public ResponseEntity<ApiResponse<String>> deleteComp(@PathVariable Integer id){
+        return cp.delete(id);
+    }
+
     // Branches
     @Autowired
     private BranchService branchService;
@@ -44,8 +49,8 @@ public class MangementController {
                 return branchService.getAll();
     }
 
-    @GetMapping("/branchesById")
-    public ResponseEntity<ApiResponse<Optional<Branch>>> showBranchesById(Integer id) {
+    @GetMapping("/branchById/{id}")
+    public ResponseEntity<ApiResponse<Optional<Branch>>> showBranchesById(@PathVariable Integer id) {
         return branchService.getById(id);
     }
 
@@ -116,7 +121,7 @@ public class MangementController {
     }
 
     @GetMapping("/customerByPhone")
-    public ResponseEntity<ApiResponse<Optional<Customer>>> getCustomerphon(@RequestBody CustomerPhone c){
+    public ResponseEntity<ApiResponse<Optional<Customer>>> getCustomerPhone(@RequestBody CustomerPhone c){
         return cs.getAllByPhone(c.getPhone());
     }
 

@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface BranchRepository extends JpaRepository<Branch, Integer> {
-    Branch findByBranchId(Integer branchId);
+    List<Branch> findAllByCompanyId(Integer integer);
 }

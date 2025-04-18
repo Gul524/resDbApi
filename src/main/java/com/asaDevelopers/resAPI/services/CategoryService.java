@@ -49,11 +49,4 @@ public class CategoryService {
         }
     }
 
-    public ResponseEntity<ApiResponse<List<Category>>> getAllByBranchId(Integer id) {
-        try {
-            return ResponseEntity.ok(new ApiResponse<>(true , "Successful" , "" ,repository.findByBranchId(id)));
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body(new ApiResponse<>(false , e.getMessage() , e.getCause().toString() ,null));
-        }
-    }
 }

@@ -21,9 +21,17 @@ public class BranchService {
         }
     }
 
-    public ResponseEntity<ApiResponse<Optional<Branch>>> getById(Integer id) {
+    public ResponseEntity<ApiResponse<List<Branch>>> getAllByCompanyId(Integer integer) {
         try {
-            return ResponseEntity.ok(new ApiResponse<>(true , "Successful" , "" , repository.findById(id)));
+            return ResponseEntity.ok(new ApiResponse<>(true , "Successful" , "" , repository.findAllByCompanyId(integer)));
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(new ApiResponse<>(false , e.getMessage() , e.getCause().toString() ,null));
+        }
+    }
+
+    public ResponseEntity<ApiResponse<Optional<Branch>>> getById(Integer integer) {
+        try {
+            return ResponseEntity.ok(new ApiResponse<>(true , "Successful" , "" , repository.findById(integer)));
         } catch (Exception e) {
             return ResponseEntity.status(500).body(new ApiResponse<>(false , e.getMessage() , e.getCause().toString() ,null));
         }
@@ -47,16 +55,7 @@ public class BranchService {
         }
     }
 
-    public ResponseEntity<ApiResponse<List<Branch>>> getAllByBranchId(Integer id) {
-        try {
-             ResponseEntity.ok(repository.findById(id));
-            return ResponseEntity.ok(new ApiResponse<>(true , "Successful" , "" , repository.findAll()));
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body(new ApiResponse<>(false , e.getMessage() , e.getCause().toString() ,null));
-        }
-    }
-
-    public ResponseEntity<ApiResponse<String>> deleteAll(Integer id) {
+    public ResponseEntity<ApiResponse<String>> deleteAll() {
         try {
             repository.deleteAll();
             return ResponseEntity.ok(new ApiResponse<>(true , "Deleted successfully" , "" , null));

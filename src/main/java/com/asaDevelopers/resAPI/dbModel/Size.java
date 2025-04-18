@@ -15,18 +15,18 @@ public class Size {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "ProductId", nullable = false)
+//    @ManyToOne()
+//    @JoinColumn(name = "product_id")
+//    private Product productIdy;
+
+    @Column(name = "deal_item_id")
+    private Integer DealItemId;
+
+    @Column(name = "Product_id" )
     private Integer productId;
 
-    @Column(name = "Price", nullable = false)
+    @Column(name = "Price")
     private Integer price;
 
-    @Column(name = "branch" )
-    private Integer branchId;
 
-    @Column(name = "has_all_branches" )
-    private boolean hasAllBranches;
-
-    @Column(name = "isUploaded", nullable = false)
-    private Boolean isUploaded;
 }

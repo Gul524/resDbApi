@@ -17,7 +17,7 @@ public class Customer {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "name" , nullable = false)
+    @Column(name = "name")
     private String name;
 
     @Column(name = "phone" , unique = true , nullable = false)
@@ -30,5 +30,6 @@ public class Customer {
     private Integer totalPoints;
 
     @Column(name = "is_uploaded")
-    private Boolean isUploaded;
+    private Boolean isUploaded ;
+
 }

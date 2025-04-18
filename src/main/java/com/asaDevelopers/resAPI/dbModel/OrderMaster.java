@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "OrderMaster", schema = "public")
 @Data
@@ -14,7 +17,7 @@ public class OrderMaster {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id", nullable = false)
+    @Column(name = "Id")
     private Integer id;
 
     @Column(name = "order_number")
@@ -59,9 +62,15 @@ public class OrderMaster {
     @Column(name = "special_instruction")
     private String specialInstruction;
 
-    @Column(name = "payment_method", nullable = false)
+    @Column(name = "payment_method")
     private String paymentMethod;
 
-    @Column(name = "is_uploaded", nullable = false)
+    @Column(name = "is_uploaded")
     private Boolean isUploaded;
+
+
+//     One OrderMaster has many OrderDetails
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_Master_Id" , referencedColumnName = "id")
+    private List<OrderDetail> orderDetails = new ArrayList<>();
 }

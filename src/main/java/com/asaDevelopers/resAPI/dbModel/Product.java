@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "Products")
 @Data
@@ -28,27 +31,26 @@ public class Product {
     @Column(name = "discount_percent")
     private Integer discountPercent;
 
-    @Column(name = "size_id")
-    private Integer sizeId;
-
-    @Column(name = "flavour_id")
-    private Integer flavourId;
-
-    @Column(name = "is_uploaded")
-    private Boolean isUploaded;
-
     @Column(name = "is_deal_product")
     private Boolean isDealProduct;
-
-    @Column(name = "is_deal_item")
-    private Boolean isDealItem;
 
     @Column(name = "is_fixed_deal")
     private Boolean isFixedDeal;
 
-    @Column(name = "branch" )
-    private Integer branchId;
-
     @Column(name = "is_active")
     private Boolean isActive;
+
+    @OneToMany(cascade = CascadeType.ALL )
+    @JoinColumn(name = "product_id" , referencedColumnName = "id")
+    private List<Size> sizes ;
+
+    @OneToMany(cascade = CascadeType.ALL )
+    @JoinColumn(name = "product_id" , referencedColumnName = "id")
+    private List<Flavour> flavours ;
+
+    @OneToMany(cascade = CascadeType.ALL )
+    @JoinColumn(name = "product_id" , referencedColumnName = "id")
+    private List<Deals> deals ;
+
+
 }

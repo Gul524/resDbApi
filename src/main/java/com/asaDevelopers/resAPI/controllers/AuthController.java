@@ -11,8 +11,6 @@ import java.util.Map;
 public class AuthController {
 
     private final JwtUtil jwtUtil;
-    private final String FIXED_USERNAME = "admin";
-    private final String FIXED_PASSWORD = "password";
 
     public AuthController(JwtUtil jwtUtil) {
         this.jwtUtil = jwtUtil;
@@ -25,7 +23,8 @@ public class AuthController {
         String username = credentials.get("username");
         String password = credentials.get("password");
 
-        if (Constraints.apiUsername.equals(username) && Constraints.apiPassword.equals(password)) {
+        if (Constraints.apiUsername.equals(username) && Constraints
+                .apiPassword.equals(password)) {
             String token = jwtUtil.generateToken(Constraints.apiUsername);
             return ResponseEntity.ok(Map.of("token", token));
         }

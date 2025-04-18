@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Table", schema = "public")
+@Table(name = "DiningTable", schema = "public")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,16 +14,16 @@ public class TableEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id", nullable = false)
+    @Column(name = "id")
     private Integer id;
 
-    @Column(name = "table_number", nullable = false)
+    @Column(name = "table_number")
     private Integer tableNumber;
 
-    @Column(name = "table_size", nullable = false)
+    @Column(name = "table_size" )
     private Integer tableSize;
 
-    @Column(name = "status", nullable = false)
+    @Column(name = "status")
     private String status;
 
     @Column(name = "branch" )

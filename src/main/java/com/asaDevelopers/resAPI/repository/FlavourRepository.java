@@ -9,6 +9,5 @@ import java.util.List;
 
 @Repository
 public interface FlavourRepository extends JpaRepository<Flavour, Integer> {
-    List<Flavour> findByBranchId(Integer branchId);
 
 }

@@ -19,12 +19,7 @@ public class Category {
     @Column(name = "category_name")
     private String categoryName;
 
-    @Column(name = "branch" )
-    private Integer branchId;
-
     @Column(name = "is_active")
     private Boolean isActive;
 
-    @Column(name = "is_uploaded")
-    private Boolean isUploaded;
 }

@@ -1,11 +1,9 @@
 package com.asaDevelopers.resAPI.repository;
 
-import com.asaDevelopers.resAPI.dbModel.Category;
+import com.asaDevelopers.resAPI.dbModel.DealItems;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public interface CategoryRepository extends JpaRepository<Category, Integer> {
+public interface DealItemsRepository extends JpaRepository<DealItems, Integer> {
 }

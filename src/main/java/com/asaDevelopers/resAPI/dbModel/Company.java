@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Company")
 @Data
@@ -18,6 +20,11 @@ public class Company {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL )
+    @JoinColumn(name = "company_id" , referencedColumnName = "id")
+    private List<Branch> branches ;
+
 }
 
 

@@ -50,18 +50,8 @@ public class OrderDetail {
     @Column(name = "price", nullable = false)
     private Integer price;
 
-    @Column(name = "amount_with_tax")
-    private Integer amountWithTax;
-
-    @Column(name = "amount_without_tax")
-    private Integer amountWithoutTax;
-
-    @Column(name = "tax_percent")
-    private Integer taxPercent;
-
     @Column(name = "branch_id")
     private Integer branchId;
 
-    @Column(name = "is_uploaded")
-    private Boolean isUploaded;
+
 }

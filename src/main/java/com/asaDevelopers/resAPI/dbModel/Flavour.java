@@ -17,9 +17,12 @@ public class Flavour {
     @Column(name = "product_id")
     private Integer productId;
 
-    @Column(name = "branch" )
-    private Integer branchId;
+    @Column(name = "name")
+    private  String name;
 
-    @Column(name = "is_uploaded")
-    private Boolean isUploaded;
+    @Column(name = "deal_item_id")
+    private Integer dealItemId;
+
+    @Column(name = "Price", nullable = false)
+    private Integer price;
 }

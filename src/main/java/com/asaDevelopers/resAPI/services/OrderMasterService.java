@@ -32,7 +32,7 @@ public class OrderMasterService {
         }
     }
 
-    public ResponseEntity<ApiResponse<OrderMaster>> save(Iterable<OrderMaster> entity) {
+    public ResponseEntity<ApiResponse<String>> save(Iterable<OrderMaster> entity) {
         try {
             repository.saveAll(entity);
             return ResponseEntity.ok(new ApiResponse<>(true, "Saved successfully", "", null));
@@ -50,9 +50,34 @@ public class OrderMasterService {
         }
     }
 
+    public ResponseEntity<ApiResponse<String>> status(Integer id , String status) {
+        try {
+            Optional<OrderMaster> oom = repository.findById(id);
+            if(oom.isPresent()){
+                OrderMaster om = oom.get();
+                om.setStatus(status);
+                repository.save(om);
+            }
+
+            return ResponseEntity.ok(new ApiResponse<>(true, "Status Updated successfully", "", null));
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(new ApiResponse<>(false, e.getMessage(), e.getCause() != null ? e.getCause().toString() : "", null));
+        }
+    }
+
+
+
     public ResponseEntity<ApiResponse<List<OrderMaster>>> getAllByBranchId(Integer id) {
         try {
             return ResponseEntity.ok(new ApiResponse<>(true , "Successful" , "" ,repository.findByBranchId(id)));
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(new ApiResponse<>(false , e.getMessage() , e.getCause().toString() ,null));
+        }
+    }
+
+    public ResponseEntity<ApiResponse<List<OrderMaster>>> getAllByPhone(Integer phone) {
+        try {
+            return ResponseEntity.ok(new ApiResponse<>(true , "Successful" , "" ,repository.findBycustomerPhone(phone)));
         } catch (Exception e) {
             return ResponseEntity.status(500).body(new ApiResponse<>(false , e.getMessage() , e.getCause().toString() ,null));
         }

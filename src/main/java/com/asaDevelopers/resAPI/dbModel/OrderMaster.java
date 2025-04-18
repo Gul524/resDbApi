@@ -17,9 +17,6 @@ public class OrderMaster {
     @Column(name = "Id", nullable = false)
     private Integer id;
 
-    @Column(name = "order_master_id")
-    private Integer orderMasterId;
-
     @Column(name = "order_number")
     private String orderNumber;
 

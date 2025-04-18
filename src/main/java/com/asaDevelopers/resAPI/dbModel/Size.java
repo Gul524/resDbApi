@@ -15,9 +15,6 @@ public class Size {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "SizeId", nullable = false, unique = true)
-    private Integer sizeId;
-
     @Column(name = "ProductId", nullable = false)
     private Integer productId;
 

@@ -17,9 +17,6 @@ public class Employee {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "employee_id" )
-    private Integer employeeId;
-
     @Column(name = "name" )
     private String name;
 

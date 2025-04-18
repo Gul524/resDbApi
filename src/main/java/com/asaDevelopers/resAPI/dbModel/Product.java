@@ -16,9 +16,6 @@ public class Product {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "product_id")
-    private Integer productId;
-
     @Column(name = "product_name")
     private String productName;
 
@@ -51,9 +48,6 @@ public class Product {
 
     @Column(name = "branch" )
     private Integer branchId;
-
-    @Column(name = "has_all_branches" )
-    private boolean hasAllBranches;
 
     @Column(name = "is_active")
     private Boolean isActive;

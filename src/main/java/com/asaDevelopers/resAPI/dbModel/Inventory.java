@@ -15,17 +15,11 @@ public class Inventory {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "inventory_id")
-    private Integer inventoryId;
-
     @Column(name = "name")
     private String name;
 
     @Column(name = "branch" )
     private Integer branchId;
-
-    @Column(name = "has_all_branches" )
-    private boolean hasAllBranches;
 
     @Column(name = "available_quantity")
     private Double availableQuantity;

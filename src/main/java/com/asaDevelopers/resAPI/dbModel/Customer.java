@@ -17,9 +17,6 @@ public class Customer {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "customer_id")
-    private Integer customerId;
-
     @Column(name = "name" , nullable = false)
     private String name;
 

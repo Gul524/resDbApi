@@ -17,9 +17,6 @@ public class OrderDetail {
     @Column(name = "Id", nullable = false)
     private Integer id;
 
-    @Column(name = "order_detail_id")
-    private Integer orderDetailId;
-
     @Column(name = "order_master_id")
     private Integer orderMasterId;
 

@@ -17,9 +17,6 @@ public class TableEntity {
     @Column(name = "Id", nullable = false)
     private Integer id;
 
-    @Column(name = "table_id")
-    private Integer tableId;
-
     @Column(name = "table_number", nullable = false)
     private Integer tableNumber;
 

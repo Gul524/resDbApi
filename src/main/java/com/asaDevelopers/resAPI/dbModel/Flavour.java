@@ -14,17 +14,11 @@ public class Flavour {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "flavour_id")
-    private Integer flavourId;
-
     @Column(name = "product_id")
     private Integer productId;
 
     @Column(name = "branch" )
     private Integer branchId;
-
-    @Column(name = "has_all_branches" )
-    private boolean hasAllBranches;
 
     @Column(name = "is_uploaded")
     private Boolean isUploaded;

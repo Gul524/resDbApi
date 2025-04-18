@@ -17,9 +17,6 @@ public class Branch {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "branch_id")
-    private Integer branchId;
-
     @Column(name = "company_id")
     private Integer companyId;
 

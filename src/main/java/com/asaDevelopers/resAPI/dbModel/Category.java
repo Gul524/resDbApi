@@ -16,17 +16,11 @@ public class Category {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "category_id" )
-    private Integer categoryId;
-
     @Column(name = "category_name")
     private String categoryName;
 
     @Column(name = "branch" )
     private Integer branchId;
-
-    @Column(name = "has_all_branches" )
-    private boolean hasAllBranches;
 
     @Column(name = "is_active")
     private Boolean isActive;

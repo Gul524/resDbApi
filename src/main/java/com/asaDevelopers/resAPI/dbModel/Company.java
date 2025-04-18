@@ -16,9 +16,8 @@ public class Company {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "company_id")
-    private Integer companyId;
-
     @Column(name = "name")
     private String name;
 }
+
+

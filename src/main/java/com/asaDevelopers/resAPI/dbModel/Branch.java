@@ -32,6 +32,9 @@ public class Branch {
     @Column(name = "phone" )
     private String phone;
 
+    @Column(name = "address" )
+    private String address;
+
     @Column(name = "uploaded")
     private Boolean uploaded;
 }

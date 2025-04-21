@@ -16,7 +16,7 @@ public class AuthController {
         this.jwtUtil = jwtUtil;
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String ,String> credentials) {
 
 

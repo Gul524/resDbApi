@@ -63,8 +63,8 @@ public class MangementController {
         return is.getAll();
     }
 
-    @GetMapping("/inventoryByBranchId")
-    public ResponseEntity<ApiResponse<List<Inventory>>> getInventory(Integer id){
+    @GetMapping("/inventoryByBranchId/{id}")
+    public ResponseEntity<ApiResponse<List<Inventory>>> getInventory(@PathVariable  Integer id){
         return is.getAllByBranchId(id);
     }
 
@@ -82,8 +82,8 @@ public class MangementController {
         return ils.getAll();
     }
 
-    @GetMapping("/inventoryLogByBranchId")
-    public ResponseEntity<ApiResponse<List<InventoryLog>>> getInventoryL(Integer id){
+    @GetMapping("/inventoryLogByBranchId/{id}")
+    public ResponseEntity<ApiResponse<List<InventoryLog>>> getInventoryL(@PathVariable Integer id){
         return ils.getAllByBranchId(id);
     }
 
@@ -101,13 +101,13 @@ public class MangementController {
         return ts.getAll();
     }
 
-    @GetMapping("/tableByBranchId")
-    public ResponseEntity<ApiResponse<List<TableEntity>>> getTableById(Integer id){
+    @GetMapping("/tableByBranchId/{id}")
+    public ResponseEntity<ApiResponse<List<TableEntity>>> getTableById(@PathVariable Integer id){
         return ts.getAllByBranchId(id);
     }
 
     @PostMapping("/addTable")
-    public ResponseEntity<ApiResponse<TableEntity>> saveTable(Iterable<TableEntity> i){
+    public ResponseEntity<ApiResponse<TableEntity>> saveTable(@RequestBody Iterable<TableEntity> i){
         return ts.save(i);
     }
 
@@ -120,7 +120,7 @@ public class MangementController {
         return cs.getAll();
     }
 
-    @GetMapping("/customerByPhone")
+    @PostMapping("/customerByPhone")
     public ResponseEntity<ApiResponse<Optional<Customer>>> getCustomerPhone(@RequestBody CustomerPhone c){
         return cs.getAllByPhone(c.getPhone());
     }
@@ -154,13 +154,13 @@ public class MangementController {
         return es.getAllByBranchId(id);
     }
 
-    @GetMapping("/employeeByCnic")
+    @PostMapping("/employeeByCnic")
     public ResponseEntity<ApiResponse<Optional<Employee>>> getEmpByCnic(@RequestBody HashMap<String,Integer> c){
         return es.getByCnic(c.get("cnic"));
     }
 
     @PostMapping("/addEmployee")
-    public ResponseEntity<ApiResponse<Employee>> saveEmp(Iterable<Employee> e){
+    public ResponseEntity<ApiResponse<Employee>> saveEmp(@RequestBody Iterable<Employee> e){
         return es.save(e);
     }
 

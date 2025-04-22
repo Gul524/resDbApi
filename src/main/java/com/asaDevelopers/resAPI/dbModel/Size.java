@@ -15,6 +15,9 @@ public class Size {
     @Column(name = "id", nullable = false)
     private Integer id;
 
+    @Column(name = "name")
+    private  String name;
+
     @Column(name = "deal_item_id")
     private Integer DealItemId;
 

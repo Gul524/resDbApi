@@ -26,10 +26,6 @@ public class Product {
     @Column(name = "product_name")
     private String productName;
 
-    @ManyToOne
-    @JoinColumn(name = "category")
-    private Category category;
-
     @Column(name = "primary_price")
     private Integer primaryPrice;
 

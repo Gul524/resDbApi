@@ -34,6 +34,6 @@ public class DealItems {
 
     @OneToMany(cascade = CascadeType.ALL )
     @JoinColumn(name = "deal_item_id" , referencedColumnName = "id")
-    private List<Deals> deals ;
+    private List<Size> size ;
 
 }

@@ -15,10 +15,6 @@ public class Size {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-//    @ManyToOne()
-//    @JoinColumn(name = "product_id")
-//    private Product productIdy;
-
     @Column(name = "deal_item_id")
     private Integer DealItemId;
 

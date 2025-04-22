@@ -19,6 +19,10 @@ public class Product {
     @Column(name = "id")
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     @Column(name = "product_name")
     private String productName;
 

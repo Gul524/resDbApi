@@ -18,20 +18,11 @@ public class Deals {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "Product_id" )
-    private Integer productId;
-
     @Column(name = "deal_name")
     private String productName;
 
-    @Column(name = "minimum_selection")
-    private Boolean minimunSelection;
-
-    @Column(name = "maximum_selection")
-    private Boolean maximumSelection;
-
-    @Column(name = "is_active")
-    private Boolean isActive;
+    @Column(name = "price")
+    private Integer price;
 
     @OneToMany(cascade = CascadeType.ALL )
     @JoinColumn(name = "deal_id" , referencedColumnName = "id")

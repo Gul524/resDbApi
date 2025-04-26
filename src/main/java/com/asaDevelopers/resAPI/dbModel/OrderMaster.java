@@ -65,12 +65,12 @@ public class OrderMaster {
     @Column(name = "payment_method")
     private String paymentMethod;
 
-    @Column(name = "is_uploaded")
-    private Boolean isUploaded;
-
-
 //     One OrderMaster has many OrderDetails
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "order_Master_Id" , referencedColumnName = "id")
     private List<OrderDetail> orderDetails = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "order_Master_Id" , referencedColumnName = "id")
+    private List<OrderDealDetail> orderDealDetails = new ArrayList<>();
 }

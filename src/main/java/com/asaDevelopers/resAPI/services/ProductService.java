@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +23,7 @@ public class ProductService {
     @Autowired private DealItemsRepository dealItemsRepo;
     @Autowired private SizeRepository sizesRepo;
     @Autowired private FlavourRepository flavourRepo;
+    @Autowired private CategoryRepository categoryRepo;
 
     public ResponseEntity<ApiResponse<List<Product>>> getAll() {
         try {
@@ -31,12 +33,21 @@ public class ProductService {
         }
     }
 
-    public ResponseEntity<ApiResponse<Product>> updatePoduct(Integer id , Product product ) {
+    public ResponseEntity<ApiResponse<Product>> updatePoduct(Integer id , ProductModel product ) {
         try {
             final Optional<Product> oProduct = repository.findById(id);
             if(oProduct.isPresent()){
                 repository.delete(oProduct.get());
-                repository.save(product);
+                Optional<Category> oc = categoryRepo.findById(product.getCategoryId());
+                if(oc.isPresent()){
+                    Product p = new Product();
+                    p.setProductName(product.getProductName());
+                    p.setCategory(oc.get());
+                    p.setSizes(product.getSizes());
+                    p.setFlavors(product.getFlavors());
+                    p.setPrice(product.getPrice());
+                    repository.save(p);
+                }
             }
             return ResponseEntity.ok(new ApiResponse<>(true , "Product Price Updated Successfully" , "" , null));
         } catch (Exception e) {
@@ -52,9 +63,22 @@ public class ProductService {
         }
     }
 
-    public ResponseEntity<ApiResponse<Product>> save(Iterable<Product> entity) {
+    public ResponseEntity<ApiResponse<Product>> save(Iterable<ProductModel> entity) {
+        List<Product> lp = new ArrayList<>();
         try {
-            repository.saveAll(entity);
+            for(ProductModel pm : entity){
+                Optional<Category> oc = categoryRepo.findById(pm.getCategoryId());
+                if(oc.isPresent()){
+                    Product p = new Product();
+                    p.setProductName(pm.getProductName());
+                    p.setCategory(oc.get());
+                    p.setSizes(pm.getSizes());
+                    p.setFlavors(pm.getFlavors());
+                    p.setPrice(pm.getPrice());
+                    lp.add(p);
+                }
+            }
+            repository.saveAll(lp);
             return ResponseEntity.ok(new ApiResponse<>(true , "Product Added Successfully " , "", null));
         } catch (Exception e) {
             return ResponseEntity.status(500).body(new ApiResponse<>(false , e.getMessage() , e.getCause().toString() , null));

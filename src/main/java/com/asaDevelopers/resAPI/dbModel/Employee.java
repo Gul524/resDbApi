@@ -30,9 +30,4 @@ public class Employee {
     @Column(name = "branch" )
     private Integer branchId;
 
-    @Column(name = "is_active" )
-    private boolean isActive;
-
-    @Column(name = "is_uploaded" )
-    private Boolean isUploaded;
 }

@@ -6,11 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "OrderDetail", schema = "public")
+@Table(name = "OrderDealDetail", schema = "public")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderDetail {
+public class OrderDealDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +20,11 @@ public class OrderDetail {
     @Column(name = "order_master_id")
     private Integer orderMasterId;
 
-    @Column(name = "product_name")
-    private String productName;
+    @Column(name = "deal_name")
+    private String dealName;
 
-    @Column(name = "product_size")
-    private String productSize;
+    @Column(name = "deal_size")
+    private String dealSize;
 
     @Column(name = "product_flavour")
     private String productFlavour;

@@ -26,7 +26,7 @@ public class AuthController {
         if (Constraints.apiUsername.equals(username) && Constraints
                 .apiPassword.equals(password)) {
             String token = jwtUtil.generateToken(Constraints.apiUsername);
-            return ResponseEntity.ok(Map.of("token", token));
+            return ResponseEntity.ok(token);
         }
 
         return ResponseEntity.status(401).body("Invalid credentials");

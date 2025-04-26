@@ -21,9 +21,10 @@ public class Inventory {
     @Column(name = "branch" )
     private Integer branchId;
 
+    @Column(name = "Quantity")
+    private Double quantity;
+
     @Column(name = "available_quantity")
     private Double availableQuantity;
 
-    @Column(name = "is_uploaded")
-    private Boolean isUploaded;
 }

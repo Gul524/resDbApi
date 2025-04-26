@@ -27,13 +27,8 @@ public class InventoryLog {
     @Column(name = "Log")
     private String log;
 
-    @Column(name = "isAdded")
-    private Boolean isAdded;
-
     @Column(name = "branch" )
     private Integer branchId;
 
-    @Column(name = "IsUploaded")
-    private Boolean isUploaded;
 }
 

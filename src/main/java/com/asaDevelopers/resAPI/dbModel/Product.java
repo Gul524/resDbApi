@@ -26,23 +26,8 @@ public class Product {
     @Column(name = "product_name")
     private String productName;
 
-    @Column(name = "primary_price")
-    private Integer primaryPrice;
-
-    @Column(name = "secondary_price")
-    private Integer secondaryPrice;
-
-    @Column(name = "discount_percent")
-    private Integer discountPercent;
-
-    @Column(name = "is_deal_product")
-    private Boolean isDealProduct;
-
-    @Column(name = "is_fixed_deal")
-    private Boolean isFixedDeal;
-
-    @Column(name = "is_active")
-    private Boolean isActive;
+    @Column(name = "price")
+    private Integer price;
 
     @OneToMany(cascade = CascadeType.ALL )
     @JoinColumn(name = "product_id" , referencedColumnName = "id")
@@ -50,11 +35,6 @@ public class Product {
 
     @OneToMany(cascade = CascadeType.ALL )
     @JoinColumn(name = "product_id" , referencedColumnName = "id")
-    private List<Flavour> flavours ;
-
-    @OneToMany(cascade = CascadeType.ALL )
-    @JoinColumn(name = "product_id" , referencedColumnName = "id")
-    private List<Deals> deals ;
-
+    private List<Flavour> flavors ;
 
 }

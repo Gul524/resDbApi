@@ -4,7 +4,7 @@ import lombok.*;
 
 
 @Entity
-@Table(name = "Flavour")
+@Table(name = "Flavor")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,15 +14,7 @@ public class Flavour {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "product_id")
-    private Integer productId;
-
     @Column(name = "name")
     private  String name;
 
-    @Column(name = "deal_item_id")
-    private Integer dealItemId;
-
-    @Column(name = "Price", nullable = false)
-    private Integer price;
 }

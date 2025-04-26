@@ -18,22 +18,15 @@ public class DealItems {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "deal_id")
-    private Integer  dealId;
-
     @Column(name = "item_name")
     private String itemName;
 
-    @Column(name = "price")
-    private Integer price;
+    @Column(name = "size_name")
+    private String SizeName;
 
+    @Column(name = "quantity")
+    private Integer quantity;
 
-    @OneToMany(cascade = CascadeType.ALL )
-    @JoinColumn(name = "deal_item_id" , referencedColumnName = "id")
-    private List<Flavour> flavours ;
-
-    @OneToMany(cascade = CascadeType.ALL )
-    @JoinColumn(name = "deal_item_id" , referencedColumnName = "id")
-    private List<Size> size ;
-
+    @Column(name = "flavour_name")
+    private String flavourName;
 }

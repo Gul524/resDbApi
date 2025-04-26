@@ -18,14 +18,7 @@ public class Size {
     @Column(name = "name")
     private  String name;
 
-    @Column(name = "deal_item_id")
-    private Integer DealItemId;
-
-    @Column(name = "Product_id" )
-    private Integer productId;
-
-    @Column(name = "Price")
+    @Column(name = "price")
     private Integer price;
-
 
 }

@@ -2,6 +2,7 @@ package com.asaDevelopers.resAPI.controllers;
 
 import com.asaDevelopers.resAPI.dbModel.*;
 import com.asaDevelopers.resAPI.model.ApiResponse;
+import com.asaDevelopers.resAPI.model.ProductModel;
 import com.asaDevelopers.resAPI.model.StatusModel;
 import com.asaDevelopers.resAPI.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
     @PostMapping("/addProducts")
-    public ResponseEntity<ApiResponse<Product>> getProductService(@RequestBody Iterable<Product> p) {
+    public ResponseEntity<ApiResponse<Product>> getProductService(@RequestBody Iterable<ProductModel> p) {
         return productService.save(p);
     }
 

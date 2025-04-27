@@ -51,34 +51,11 @@ public class ProductController {
         return productService.getAll();
     }
 
-//    // Sizes
-//    @Autowired private SizeService ss;
-//
-//    @GetMapping("sizes")
-//    public ResponseEntity<ApiResponse<List<Size>>> getSizes(){
-//        return ss.getAll();
-//    }
-//
-//
-//
-//    @PostMapping("/addSize")
-//    public ResponseEntity<ApiResponse<Size>> saveSize(@RequestBody Iterable<Size> s){
-//        return  ss.save(s);
-//    }
-//
-//    // Flavour
-//    @Autowired private FlavourService fs;
-//
-//    @GetMapping("Flavours")
-//    public ResponseEntity<ApiResponse<List<Flavour>>> getFlavours(){
-//        return fs.getAll();
-//    }
-//
-//
-//    @PostMapping("/addFlavour")
-//    public ResponseEntity<ApiResponse<Flavour>> save_size(@RequestBody Iterable<Flavour> f){
-//        return  fs.save(f);
-//    }
+    @PostMapping("/updateProducts/{id}")
+    public ResponseEntity<ApiResponse<Product>>  del_product(@PathVariable Integer id , @RequestBody ProductModel pm) {
+        return productService.updateProduct(id ,pm);
+    }
+
 
 
 //    orderHistoryMaintaince

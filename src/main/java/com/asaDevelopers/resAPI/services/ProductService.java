@@ -33,7 +33,7 @@ public class ProductService {
         }
     }
 
-    public ResponseEntity<ApiResponse<Product>> updatePoduct(Integer id , ProductModel product ) {
+    public ResponseEntity<ApiResponse<Product>> updateProduct(Integer id , ProductModel product ) {
         try {
             final Optional<Product> oProduct = repository.findById(id);
             if(oProduct.isPresent()){
@@ -49,7 +49,7 @@ public class ProductService {
                     repository.save(p);
                 }
             }
-            return ResponseEntity.ok(new ApiResponse<>(true , "Product Price Updated Successfully" , "" , null));
+            return ResponseEntity.ok(new ApiResponse<>(true , "Product  Updated Successfully" , "" , null));
         } catch (Exception e) {
             return ResponseEntity.status(500).body(new ApiResponse<>(true ,e.getMessage() ,e.getCause().toString(), null));
         }

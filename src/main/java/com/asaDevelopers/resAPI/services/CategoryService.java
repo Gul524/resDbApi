@@ -49,4 +49,24 @@ public class CategoryService {
         }
     }
 
+    public ResponseEntity<ApiResponse<String>> update(Integer id,String name) {
+        try {
+            Category category = repository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Category not found with id: " + id));
+
+            category.setCategoryName(name);
+
+            repository.save(category);
+
+            return ResponseEntity.ok(new ApiResponse<>(true, "Category updated successfully", null, null));
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(404)
+                    .body(new ApiResponse<>(false, e.getMessage(), null, null));
+        } catch (Exception e) {
+            // Handle unexpected errors
+            return ResponseEntity.status(500)
+                    .body(new ApiResponse<>(false, "Failed to update category", e.getMessage(), null));
+        }
+    }
+
 }

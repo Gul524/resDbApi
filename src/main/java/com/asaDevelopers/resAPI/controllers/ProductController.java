@@ -28,6 +28,11 @@ public class ProductController {
         return categoryService.delete(id);
     }
 
+    @PostMapping("/updateCategory/{id}/{name}")
+    public ResponseEntity<ApiResponse<String>> update_category(@PathVariable Integer id , @PathVariable String name) {
+        return categoryService.update(id,name);
+    }
+
     // Products
     @Autowired
     private ProductService productService;

@@ -17,19 +17,17 @@ public class OrderDealItemDetail {
     @Column(name = "Id", nullable = false)
     private Integer id;
 
-    @Column(name = "deal_item_name")
-    private String dealItemName;
+    @Column(name = "item_name")
+    private String itemName;
 
-    @Column(name = "deal_item_size")
-    private String dealSize;
+    @Column(name = "item_size")
+    private String itemSize;
 
-    @Column(name = "deal_item_flavour")
-    private String productFlavour;
+    @Column(name = "item_flavor")
+    private String itemFlavor;
 
     @Column(name = "quantity")
     private Integer quantity;
 
-    @Column(name = "branch_id")
-    private Integer branchId;
 
 }

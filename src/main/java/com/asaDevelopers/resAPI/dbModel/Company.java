@@ -21,10 +21,6 @@ public class Company {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL )
-    @JoinColumn(name = "company_id" , referencedColumnName = "id")
-    private List<Branch> branches ;
-
 }
 
 

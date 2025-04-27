@@ -56,6 +56,9 @@ public class OrderMaster {
     @Column(name = "branch_id")
     private Integer branchId;
 
+    @Column(name = "company_id")
+    private Integer companyId;
+
     @Column(name = "cash_Counter")
     private Integer cashCounterNo;
 

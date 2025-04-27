@@ -22,7 +22,7 @@ public class ProductService {
     @Autowired private DealRepository dealRepo;
     @Autowired private DealItemsRepository dealItemsRepo;
     @Autowired private SizeRepository sizesRepo;
-    @Autowired private FlavourRepository flavourRepo;
+    @Autowired private FlavorRepository flavourRepo;
     @Autowired private CategoryRepository categoryRepo;
 
     public ResponseEntity<ApiResponse<List<Product>>> getAll() {

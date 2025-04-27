@@ -1,7 +1,7 @@
 package com.asaDevelopers.resAPI.model;
 
 import com.asaDevelopers.resAPI.dbModel.Category;
-import com.asaDevelopers.resAPI.dbModel.Flavour;
+import com.asaDevelopers.resAPI.dbModel.Flavor;
 import com.asaDevelopers.resAPI.dbModel.Product;
 import com.asaDevelopers.resAPI.dbModel.Size;
 import jakarta.persistence.*;
@@ -17,5 +17,5 @@ public class ProductModel {
     private String productName;
     private Integer price;
     private List<Size> sizes ;
-    private List<Flavour> flavors ;
+    private List<Flavor> flavors ;
 }

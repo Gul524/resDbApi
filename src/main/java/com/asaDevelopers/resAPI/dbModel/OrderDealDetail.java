@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "OrderDealDetail", schema = "public")
 @Data
@@ -17,17 +19,8 @@ public class OrderDealDetail {
     @Column(name = "Id", nullable = false)
     private Integer id;
 
-    @Column(name = "order_master_id")
-    private Integer orderMasterId;
-
     @Column(name = "deal_name")
     private String dealName;
-
-    @Column(name = "deal_size")
-    private String dealSize;
-
-    @Column(name = "product_flavour")
-    private String productFlavour;
 
     @Column(name = "instruction")
     private String instruction;
@@ -38,7 +31,9 @@ public class OrderDealDetail {
     @Column(name = "price", nullable = false)
     private Integer price;
 
-    @Column(name = "branch_id")
-    private Integer branchId;
+
+    @OneToMany(cascade = CascadeType.ALL )
+    @JoinColumn(name = "order_deal_id" , referencedColumnName = "id")
+    private List<OrderDealItemDetail> orderDealItems ;
 
 }

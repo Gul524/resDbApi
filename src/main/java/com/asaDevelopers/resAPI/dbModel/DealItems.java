@@ -22,7 +22,7 @@ public class DealItems {
     private String itemName;
 
     @Column(name = "size_name")
-    private String SizeName;
+    private String sizeName;
 
     @Column(name = "quantity")
     private Integer quantity;

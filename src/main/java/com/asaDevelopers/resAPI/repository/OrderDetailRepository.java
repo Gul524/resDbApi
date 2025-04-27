@@ -10,5 +10,4 @@ import java.util.List;
 
 @Repository
 public interface OrderDetailRepository extends JpaRepository<OrderDetail, Integer> {
-    List<OrderDetail> findByBranchId(Integer branchId);
 }

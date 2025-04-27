@@ -29,7 +29,4 @@ public class Customer {
     @Column(name = "total_points")
     private Integer totalPoints;
 
-    @Column(name = "is_uploaded")
-    private Boolean isUploaded ;
-
 }

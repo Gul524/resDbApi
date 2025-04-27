@@ -19,7 +19,7 @@ public class Deals {
     private Integer id;
 
     @Column(name = "deal_name")
-    private String productName;
+    private String dealName;
 
     @Column(name = "price")
     private Integer price;

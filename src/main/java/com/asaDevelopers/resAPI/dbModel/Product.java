@@ -35,6 +35,6 @@ public class Product {
 
     @OneToMany(cascade = CascadeType.ALL )
     @JoinColumn(name = "product_id" , referencedColumnName = "id")
-    private List<Flavour> flavors ;
+    private List<Flavor> flavors ;
 
 }

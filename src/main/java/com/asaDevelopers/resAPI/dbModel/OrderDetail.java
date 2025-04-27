@@ -17,17 +17,14 @@ public class OrderDetail {
     @Column(name = "Id", nullable = false)
     private Integer id;
 
-    @Column(name = "order_master_id")
-    private Integer orderMasterId;
-
     @Column(name = "product_name")
     private String productName;
 
     @Column(name = "product_size")
     private String productSize;
 
-    @Column(name = "product_flavour")
-    private String productFlavour;
+    @Column(name = "product_flavor")
+    private String productFlavor;
 
     @Column(name = "instruction")
     private String instruction;
@@ -38,7 +35,5 @@ public class OrderDetail {
     @Column(name = "price", nullable = false)
     private Integer price;
 
-    @Column(name = "branch_id")
-    private Integer branchId;
 
 }

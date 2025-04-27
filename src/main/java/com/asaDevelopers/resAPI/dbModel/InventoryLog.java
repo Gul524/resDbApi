@@ -18,9 +18,6 @@ public class InventoryLog {
     @Column(name = "InventoryId")
     private Integer inventoryId;
 
-    @Column(name = "EmployeeId")
-    private Integer employeeId;
-
     @Column(name = "Quantity")
     private Double quantity;
 

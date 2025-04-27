@@ -25,7 +25,7 @@ public class ProductController {
 
     @PostMapping("/deleteCategory/{id}")
     public ResponseEntity<ApiResponse<String>> del_category(@PathVariable Integer id) {
-        return productService.delete(id);
+        return categoryService.delete(id);
     }
 
     // Products

@@ -24,7 +24,6 @@ public class Deals {
     @Column(name = "price")
     private Integer price;
 
-    @OneToMany(cascade = CascadeType.ALL )
-    @JoinColumn(name = "deal_id" , referencedColumnName = "id")
-    private List<DealItems> dealItems ;
+    @Column(name = "description")
+    private String description;
 }

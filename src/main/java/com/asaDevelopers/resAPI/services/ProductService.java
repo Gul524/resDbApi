@@ -20,7 +20,6 @@ import java.util.Optional;
 public class ProductService {
     @Autowired private ProductRepository repository;
     @Autowired private DealRepository dealRepo;
-    @Autowired private DealItemsRepository dealItemsRepo;
     @Autowired private SizeRepository sizesRepo;
     @Autowired private FlavorRepository flavourRepo;
     @Autowired private CategoryRepository categoryRepo;

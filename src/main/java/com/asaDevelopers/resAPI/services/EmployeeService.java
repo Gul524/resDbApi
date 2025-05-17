@@ -49,13 +49,13 @@ public class EmployeeService {
         }
     }
 
-    public ResponseEntity<ApiResponse<List<Employee>>> getAllByBranchId(Integer id) {
-        try {
-            return ResponseEntity.ok(new ApiResponse<>(true , "Successful" , "" ,repository.findByBranchId(id)));
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body(new ApiResponse<>(false , e.getMessage() , e.getCause().toString() ,null));
-        }
-    }
+//    public ResponseEntity<ApiResponse<List<Employee>>> getAllByBranchId(Integer id) {
+//        try {
+//            return ResponseEntity.ok(new ApiResponse<>(true , "Successful" , "" ,repository.findByBranchId(id)));
+//        } catch (Exception e) {
+//            return ResponseEntity.status(500).body(new ApiResponse<>(false , e.getMessage() , e.getCause().toString() ,null));
+//        }
+//    }
 
     public ResponseEntity<ApiResponse<Optional<Employee>>> getByCnic(Integer cnic) {
         try {

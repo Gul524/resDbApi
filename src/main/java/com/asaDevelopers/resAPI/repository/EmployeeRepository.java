@@ -10,6 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
-    List<Employee> findByBranchId(Integer branchId);
+//    List<Employee> findByBranchId(Integer branchId);
     Optional<Employee> findByCnic(Integer cnic);
 }

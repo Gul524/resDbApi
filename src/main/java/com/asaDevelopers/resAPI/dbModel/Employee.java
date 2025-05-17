@@ -23,11 +23,7 @@ public class Employee {
     @Column(name = "cnic" )
     private Integer cnic;
 
-    @Enumerated(EnumType.STRING )
     @Column(name = "role" )
-    private EmployeeRoles role;
-
-    @Column(name = "branch" )
-    private Integer branchId;
+    private String role;
 
 }

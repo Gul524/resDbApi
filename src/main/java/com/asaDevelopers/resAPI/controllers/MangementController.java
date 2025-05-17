@@ -13,24 +13,24 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController()
-@RequestMapping("/branchApi")
+@RequestMapping("/resApi/")
 public class MangementController {
 
     // Company
     @Autowired
     private CompanyService cp;
 
-    @PostMapping("/addCompany")
+    @PostMapping("addCompany")
     public ResponseEntity<ApiResponse<Company>> saveCompany(@RequestBody Iterable<Company> c) {
         return cp.save(c);
     }
 
-    @GetMapping("/companies")
+    @GetMapping("companies")
     public ResponseEntity<ApiResponse<List<Company>>> company() {
         return cp.getAll();
     }
 
-    @PostMapping("/deleteCompany/{id}")
+    @PostMapping("deleteCompany/{id}")
     public ResponseEntity<ApiResponse<String>> deleteComp(@PathVariable Integer id){
         return cp.delete(id);
     }
@@ -39,17 +39,17 @@ public class MangementController {
     @Autowired
     private BranchService branchService;
 
-    @PostMapping("/addBranch")
+    @PostMapping("addBranch")
     public ResponseEntity<ApiResponse<Branch>> saveBranch(@RequestBody Iterable<Branch> branches) {
          return branchService.save(branches);
     }
 
-    @GetMapping("/branches")
+    @GetMapping("branches")
     public ResponseEntity<ApiResponse<List<Branch>>> showBranches() {
                 return branchService.getAll();
     }
 
-    @GetMapping("/branchById/{id}")
+    @GetMapping("branchById/{id}")
     public ResponseEntity<ApiResponse<Optional<Branch>>> showBranchesById(@PathVariable Integer id) {
         return branchService.getById(id);
     }
@@ -58,17 +58,17 @@ public class MangementController {
     @Autowired
     private InventoryService is;
 
-    @GetMapping("/inventory")
+    @GetMapping("inventory")
     public ResponseEntity<ApiResponse<List<Inventory>>> getInventory() {
         return is.getAll();
     }
 
-    @GetMapping("/inventoryByBranchId/{id}")
+    @GetMapping("inventoryByBranchId/{id}")
     public ResponseEntity<ApiResponse<List<Inventory>>> getInventory(@PathVariable  Integer id){
         return is.getAllByBranchId(id);
     }
 
-    @PostMapping("/addInventory")
+    @PostMapping("addInventory")
     public ResponseEntity<ApiResponse<Inventory>> saveInventory(Iterable<Inventory> i){
         return is.save(i);
     }
@@ -82,12 +82,12 @@ public class MangementController {
         return ils.getAll();
     }
 
-    @GetMapping("/inventoryLogByBranchId/{id}")
+    @GetMapping("inventoryLogByBranchId/{id}")
     public ResponseEntity<ApiResponse<List<InventoryLog>>> getInventoryL(@PathVariable Integer id){
         return ils.getAllByBranchId(id);
     }
 
-    @PostMapping("/addInventoryLog")
+    @PostMapping("addInventoryLog")
     public ResponseEntity<ApiResponse<InventoryLog>> saveInventoryL(Iterable<InventoryLog> i){
         return ils.save(i);
     }
@@ -96,17 +96,17 @@ public class MangementController {
     @Autowired
     private TableService ts;
 
-    @GetMapping("/table")
+    @GetMapping("table")
     public ResponseEntity<ApiResponse<List<TableEntity>>> gettable() {
         return ts.getAll();
     }
 
-    @GetMapping("/tableByBranchId/{id}")
+    @GetMapping("tableByBranchId/{id}")
     public ResponseEntity<ApiResponse<List<TableEntity>>> getTableById(@PathVariable Integer id){
         return ts.getAllByBranchId(id);
     }
 
-    @PostMapping("/addTable")
+    @PostMapping("addTable")
     public ResponseEntity<ApiResponse<TableEntity>> saveTable(@RequestBody Iterable<TableEntity> i){
         return ts.save(i);
     }
@@ -115,27 +115,27 @@ public class MangementController {
     @Autowired
     private CustomerService cs;
 
-    @GetMapping("/customer")
+    @GetMapping("customer")
     public ResponseEntity<ApiResponse<List<Customer>>> getCustomer() {
         return cs.getAll();
     }
 
-    @PostMapping("/customerByPhone")
+    @PostMapping("customerByPhone")
     public ResponseEntity<ApiResponse<Optional<Customer>>> getCustomerPhone(@RequestBody CustomerPhone c){
         return cs.getAllByPhone(c.getPhone());
     }
 
-    @PostMapping("/addCustomer")
+    @PostMapping("addCustomer")
     public ResponseEntity<ApiResponse<Customer>> saveCustomer(@RequestBody Iterable<Customer> c){
         return cs.save(c);
     }
 
-    @PostMapping("/updateCustomerPoints")
+    @PostMapping("updateCustomerPoints")
     public ResponseEntity<ApiResponse<Customer>> updatePoints(@RequestBody CustomerPoints c){
         return cs.updatePoints(c.getPhone(),c.getAvailblePoints() ,c.getTotalPoints());
     }
 
-    @PostMapping("/updateCustomerName")
+    @PostMapping("updateCustomerName")
     public ResponseEntity<ApiResponse<Customer>> updateName(@RequestBody CustomerName c){
         return cs.updateName(c.getPhone() , c.getName());
     }
@@ -144,27 +144,23 @@ public class MangementController {
     @Autowired
     private EmployeeService es;
 
-    @GetMapping("/employees")
+    @GetMapping("employees")
     public ResponseEntity<ApiResponse<List<Employee>>> getEmp() {
         return es.getAll();
     }
 
-    @GetMapping("/employeeByBranchId/{id}")
-    public ResponseEntity<ApiResponse<List<Employee>>> getEmpById(@PathVariable Integer id){
-        return es.getAllByBranchId(id);
-    }
 
-    @PostMapping("/employeeByCnic")
+    @PostMapping("employeeByCnic")
     public ResponseEntity<ApiResponse<Optional<Employee>>> getEmpByCnic(@RequestBody HashMap<String,Integer> c){
         return es.getByCnic(c.get("cnic"));
     }
 
-    @PostMapping("/addEmployee")
+    @PostMapping("addEmployee")
     public ResponseEntity<ApiResponse<Employee>> saveEmp(@RequestBody Iterable<Employee> e){
         return es.save(e);
     }
 
-    @PostMapping("/deleteEmployeeById/{i}")
+    @PostMapping("deleteEmployeeById/{i}")
     public ResponseEntity<ApiResponse<String>> delEmp(@PathVariable Integer i){
         return es.delete(i);
     }

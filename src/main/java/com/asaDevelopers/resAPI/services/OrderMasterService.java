@@ -32,9 +32,9 @@ public class OrderMasterService {
         }
     }
 
-    public ResponseEntity<ApiResponse<String>> save(Iterable<OrderMaster> entity) {
+    public ResponseEntity<ApiResponse<String>> save(OrderMaster entity) {
         try {
-            repository.saveAll(entity);
+            repository.save(entity);
             return ResponseEntity.ok(new ApiResponse<>(true, "Saved successfully", "", null));
         } catch (Exception e) {
             return ResponseEntity.status(500).body(new ApiResponse<>(false, e.getMessage(), e.getCause() != null ? e.getCause().toString() : "", null));

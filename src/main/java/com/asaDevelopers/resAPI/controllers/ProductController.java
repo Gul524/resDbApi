@@ -72,16 +72,6 @@ public class ProductController {
        return oms.save(o);
     }
 
-    @GetMapping("OrdersByBranch/{id}")
-    public ResponseEntity<ApiResponse<List<OrderMaster>>> branchOrder(@PathVariable Integer id){
-        return oms.getAllByBranchId(id);
-    }
-
-    @GetMapping("OrdersByPhone/{id}")
-    public ResponseEntity<ApiResponse<List<OrderMaster>>> customerOrder(@PathVariable Integer phone){
-        return oms.getAllByBranchId(phone);
-    }
-
     @PostMapping("OrderStatusUpdate/{id}")
     public ResponseEntity<ApiResponse<String>> orderStatus(@RequestBody StatusModel sm){
         return oms.status(sm.getId() , sm.getStatus());

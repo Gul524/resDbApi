@@ -14,7 +14,8 @@ import java.util.Optional;
 
 @Service
 public class OrderMasterService {
-    @Autowired private OrderMasterRepository repository;
+    @Autowired
+    private OrderMasterRepository repository;
 
     public ResponseEntity<ApiResponse<List<OrderMaster>>> getAll() {
         try {
@@ -50,10 +51,10 @@ public class OrderMasterService {
         }
     }
 
-    public ResponseEntity<ApiResponse<String>> status(Integer id , String status) {
+    public ResponseEntity<ApiResponse<String>> status(Integer id, String status) {
         try {
             Optional<OrderMaster> oom = repository.findById(id);
-            if(oom.isPresent()){
+            if (oom.isPresent()) {
                 OrderMaster om = oom.get();
                 om.setStatus(status);
                 repository.save(om);
@@ -62,24 +63,6 @@ public class OrderMasterService {
             return ResponseEntity.ok(new ApiResponse<>(true, "Status Updated successfully", "", null));
         } catch (Exception e) {
             return ResponseEntity.status(500).body(new ApiResponse<>(false, e.getMessage(), e.getCause() != null ? e.getCause().toString() : "", null));
-        }
-    }
-
-
-
-    public ResponseEntity<ApiResponse<List<OrderMaster>>> getAllByBranchId(Integer id) {
-        try {
-            return ResponseEntity.ok(new ApiResponse<>(true , "Successful" , "" ,repository.findByBranchId(id)));
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body(new ApiResponse<>(false , e.getMessage() , e.getCause().toString() ,null));
-        }
-    }
-
-    public ResponseEntity<ApiResponse<List<OrderMaster>>> getAllByPhone(Integer phone) {
-        try {
-            return ResponseEntity.ok(new ApiResponse<>(true , "Successful" , "" ,repository.findBycustomerPhone(phone)));
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body(new ApiResponse<>(false , e.getMessage() , e.getCause().toString() ,null));
         }
     }
 }

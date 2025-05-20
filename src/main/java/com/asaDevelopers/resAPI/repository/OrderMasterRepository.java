@@ -9,6 +9,4 @@ import java.util.List;
 
 @Repository
 public interface OrderMasterRepository extends JpaRepository<OrderMaster, Integer> {
-    List<OrderMaster> findByBranchId(Integer branchId);
-    List<OrderMaster> findBycustomerPhone(Integer branchId);
 }

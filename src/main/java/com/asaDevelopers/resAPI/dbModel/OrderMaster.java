@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.text.DateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +25,6 @@ public class OrderMaster {
     @Column(name = "order_number")
     private String orderNumber;
 
-    //
     @Column(name = "customer_id")
     private Integer customerId;
 
@@ -51,8 +48,6 @@ public class OrderMaster {
     //subtotal
     @Column(name = "amount_without_tax")
     private Integer amountWithoutTax;
-
-
 
 //     One OrderMaster has many OrderDetails
     @OneToMany(cascade = CascadeType.ALL)

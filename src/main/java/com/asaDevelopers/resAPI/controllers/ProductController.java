@@ -72,10 +72,6 @@ public class ProductController {
        return oms.save(o);
     }
 
-    @PostMapping("OrderStatusUpdate/{id}")
-    public ResponseEntity<ApiResponse<String>> orderStatus(@RequestBody StatusModel sm){
-        return oms.status(sm.getId() , sm.getStatus());
-    }
 
 
 }

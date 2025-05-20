@@ -51,18 +51,4 @@ public class OrderMasterService {
         }
     }
 
-    public ResponseEntity<ApiResponse<String>> status(Integer id, String status) {
-        try {
-            Optional<OrderMaster> oom = repository.findById(id);
-            if (oom.isPresent()) {
-                OrderMaster om = oom.get();
-                om.setStatus(status);
-                repository.save(om);
-            }
-
-            return ResponseEntity.ok(new ApiResponse<>(true, "Status Updated successfully", "", null));
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body(new ApiResponse<>(false, e.getMessage(), e.getCause() != null ? e.getCause().toString() : "", null));
-        }
-    }
 }

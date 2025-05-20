@@ -23,12 +23,11 @@ public class OrderDetail {
     @Column(name = "product_size")
     private String productSize;
 
+
     @Column(name = "product_flavor")
     private String productFlavor;
 
-    @Column(name = "instruction")
-    private String instruction;
-
+    //quantity
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 

@@ -22,18 +22,13 @@ public class OrderDealDetail {
     @Column(name = "deal_name")
     private String dealName;
 
-    @Column(name = "instruction")
-    private String instruction;
+    @Column(name = "description")
+    private String description;
 
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
     @Column(name = "price", nullable = false)
     private Integer price;
-
-
-    @OneToMany(cascade = CascadeType.ALL )
-    @JoinColumn(name = "order_deal_id" , referencedColumnName = "id")
-    private List<OrderDealItemDetail> orderDealItems ;
 
 }

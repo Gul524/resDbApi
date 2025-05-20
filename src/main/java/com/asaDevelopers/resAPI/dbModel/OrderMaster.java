@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.text.DateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,53 +23,36 @@ public class OrderMaster {
     @Column(name = "Id")
     private Integer id;
 
+    //tabName
     @Column(name = "order_number")
     private String orderNumber;
 
-    @Column(name = "status")
-    private String status;
-
+    //
     @Column(name = "customer_id")
     private Integer customerId;
 
+    //time
     @Column(name = "order_time")
     private String orderTime;
 
+    //date
     @Column(name = "order_date")
     private String orderDate;
 
+    //grandTotal
     @Column(name = "total_amount")
     private Integer totalAmount;
 
-    @Column(name = "discount_amount")
-    private Integer discountAmount;
 
+    //tax
     @Column(name = "tax_amount")
     private Integer taxAmount;
 
+    //subtotal
     @Column(name = "amount_without_tax")
     private Integer amountWithoutTax;
 
-    @Column(name = "customer_phone")
-    private Integer customerPhone;
 
-    @Column(name = "waiter_id")
-    private Integer waiterId;
-
-    @Column(name = "branch_id")
-    private Integer branchId;
-
-    @Column(name = "company_id")
-    private Integer companyId;
-
-    @Column(name = "cash_Counter")
-    private Integer cashCounterNo;
-
-    @Column(name = "special_instruction")
-    private String specialInstruction;
-
-    @Column(name = "payment_method")
-    private String paymentMethod;
 
 //     One OrderMaster has many OrderDetails
     @OneToMany(cascade = CascadeType.ALL)

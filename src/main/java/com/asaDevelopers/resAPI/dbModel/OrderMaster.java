@@ -26,7 +26,7 @@ public class OrderMaster {
     private String orderNumber;
 
     @Column(name = "customer_id")
-    private Integer customerId;
+    private String customerId;
 
     //time
     @Column(name = "order_time")
@@ -38,16 +38,16 @@ public class OrderMaster {
 
     //grandTotal
     @Column(name = "total_amount")
-    private Integer totalAmount;
+    private double totalAmount;
 
 
     //tax
     @Column(name = "tax_amount")
-    private Integer taxAmount;
+    private double taxAmount;
 
     //subtotal
     @Column(name = "amount_without_tax")
-    private Integer amountWithoutTax;
+    private double amountWithoutTax;
 
 //     One OrderMaster has many OrderDetails
     @OneToMany(cascade = CascadeType.ALL)

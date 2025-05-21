@@ -17,15 +17,8 @@ public class OrderDetail {
     @Column(name = "Id", nullable = false)
     private Integer id;
 
-    @Column(name = "product_name")
+    @Column(name = "product_name", nullable = false)
     private String productName;
-
-    @Column(name = "product_size")
-    private String productSize;
-
-
-    @Column(name = "product_flavor")
-    private String productFlavor;
 
     //quantity
     @Column(name = "quantity", nullable = false)

@@ -75,7 +75,7 @@ public class MangementController {
     }
 
     @PostMapping("addInventory")
-    public ResponseEntity<ApiResponse<Inventory>> saveInventory(Inventory i){
+    public ResponseEntity<ApiResponse<Inventory>> saveInventory(@RequestBody Inventory i){
         return is.save(i);
     }
 

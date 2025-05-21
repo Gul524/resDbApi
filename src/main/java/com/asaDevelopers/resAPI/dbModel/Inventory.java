@@ -18,7 +18,7 @@ public class Inventory {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "Quantity")
+    @Column(name = "quantity")
     private Integer quantity;
 
 }

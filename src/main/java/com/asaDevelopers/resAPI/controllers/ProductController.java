@@ -3,7 +3,6 @@ package com.asaDevelopers.resAPI.controllers;
 import com.asaDevelopers.resAPI.dbModel.*;
 import com.asaDevelopers.resAPI.model.ApiResponse;
 import com.asaDevelopers.resAPI.model.ProductModel;
-import com.asaDevelopers.resAPI.model.StatusModel;
 import com.asaDevelopers.resAPI.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

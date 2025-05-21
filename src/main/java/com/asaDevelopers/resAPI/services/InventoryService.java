@@ -31,9 +31,9 @@ public class InventoryService {
         }
     }
 
-    public ResponseEntity<ApiResponse<Inventory>> save(Iterable<Inventory> entity) {
+    public ResponseEntity<ApiResponse<Inventory>> save(Inventory entity) {
         try {
-            repository.saveAll(entity);
+            repository.save(entity);
             return ResponseEntity.ok(new ApiResponse<>(true, "Saved successfully", "", null));
         } catch (Exception e) {
             return ResponseEntity.status(500).body(new ApiResponse<>(false, e.getMessage(), e.getCause() != null ? e.getCause().toString() : "", null));
@@ -46,14 +46,24 @@ public class InventoryService {
             return ResponseEntity.ok(new ApiResponse<>(true, "Deleted successfully", "", "Deleted successfully"));
         } catch (Exception e) {
             return ResponseEntity.status(500).body(new ApiResponse<>(false, e.getMessage(), e.getCause() != null ? e.getCause().toString() : "", null));
-        }
+        }}
+
+        public ResponseEntity<ApiResponse<String>> update( Integer id ,Integer q ) {
+            try {
+
+               Optional<Inventory> oInventory = repository.findById(id);
+               if(oInventory.isPresent()){
+                  var inv = oInventory.get();
+                  inv.setQuantity(q);
+                  repository.save(inv);
+               }else {
+                   return ResponseEntity.status(500).body(new ApiResponse<>(false, "Inventory Not Found", "when serching for invertory to update it , inventory not found", null));
+               }
+                return ResponseEntity.ok(new ApiResponse<>(true, "Deleted successfully", "", "Deleted successfully"));
+            } catch (Exception e) {
+                return ResponseEntity.status(500).body(new ApiResponse<>(false, e.getMessage(), e.getCause() != null ? e.getCause().toString() : "", null));
+            }
     }
 
-    public ResponseEntity<ApiResponse<List<Inventory>>> getAllByBranchId(Integer id) {
-        try {
-            return ResponseEntity.ok(new ApiResponse<>(true , "Successful" , "" ,repository.findByBranchId(id)));
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body(new ApiResponse<>(false , e.getMessage() , e.getCause().toString() ,null));
-        }
-    }
+
 }

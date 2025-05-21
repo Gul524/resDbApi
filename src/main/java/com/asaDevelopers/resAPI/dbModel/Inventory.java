@@ -18,13 +18,7 @@ public class Inventory {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "branch" )
-    private Integer branchId;
-
     @Column(name = "Quantity")
-    private Double quantity;
-
-    @Column(name = "available_quantity")
-    private Double availableQuantity;
+    private Integer quantity;
 
 }

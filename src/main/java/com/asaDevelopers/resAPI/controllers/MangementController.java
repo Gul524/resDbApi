@@ -4,6 +4,7 @@ import com.asaDevelopers.resAPI.dbModel.*;
 import com.asaDevelopers.resAPI.model.*;
 import com.asaDevelopers.resAPI.services.*;
 import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.Path;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -63,13 +64,18 @@ public class MangementController {
         return is.getAll();
     }
 
-    @GetMapping("inventoryByBranchId/{id}")
-    public ResponseEntity<ApiResponse<List<Inventory>>> getInventory(@PathVariable  Integer id){
-        return is.getAllByBranchId(id);
+    @DeleteMapping("deleteInventory/{id}")
+    public ResponseEntity<ApiResponse<String>> getInventory(@PathVariable Integer id) {
+        return is.delete(id);
+    }
+
+    @PostMapping("updateInventory/{id}/quantity=/{quantity}")
+    public ResponseEntity<ApiResponse<String>> getInventory(@PathVariable Integer id , @PathVariable Integer quantity) {
+        return is.update(id, quantity);
     }
 
     @PostMapping("addInventory")
-    public ResponseEntity<ApiResponse<Inventory>> saveInventory(Iterable<Inventory> i){
+    public ResponseEntity<ApiResponse<Inventory>> saveInventory(Inventory i){
         return is.save(i);
     }
 

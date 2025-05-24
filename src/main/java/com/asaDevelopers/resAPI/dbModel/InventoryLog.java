@@ -24,8 +24,5 @@ public class InventoryLog {
     @Column(name = "Log")
     private String log;
 
-    @Column(name = "branch" )
-    private Integer branchId;
-
 }
 

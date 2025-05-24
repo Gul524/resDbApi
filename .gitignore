@@ -34,5 +34,5 @@ build/
 .vscode/
 
 
-src/main/java/com/asadevelopers/resDbApi/Constraints.java
-src/main/java/com/asadevelopers/resDbApi/resources/application.properties
+src/main/java/com/asaDevelopers/resAPI/Constraints.java
+src/main/java/com/asaDevelopers/resAPI/resources/application.properties

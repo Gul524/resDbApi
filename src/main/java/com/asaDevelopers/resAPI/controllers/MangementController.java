@@ -88,13 +88,8 @@ public class MangementController {
         return ils.getAll();
     }
 
-    @GetMapping("inventoryLogByBranchId/{id}")
-    public ResponseEntity<ApiResponse<List<InventoryLog>>> getInventoryL(@PathVariable Integer id){
-        return ils.getAllByBranchId(id);
-    }
-
     @PostMapping("addInventoryLog")
-    public ResponseEntity<ApiResponse<InventoryLog>> saveInventoryL(Iterable<InventoryLog> i){
+    public ResponseEntity<ApiResponse<InventoryLog>> saveInventoryL(@RequestBody InventoryLog i){
         return ils.save(i);
     }
 

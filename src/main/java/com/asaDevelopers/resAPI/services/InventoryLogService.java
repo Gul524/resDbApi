@@ -31,9 +31,9 @@ public class InventoryLogService {
         }
     }
 
-    public ResponseEntity<ApiResponse<InventoryLog>> save(Iterable<InventoryLog> entity) {
+    public ResponseEntity<ApiResponse<InventoryLog>> save(InventoryLog entity) {
         try {
-            repository.saveAll(entity);
+            repository.save(entity);
             return ResponseEntity.ok(new ApiResponse<>(true, "Saved successfully", "", null));
         } catch (Exception e) {
             return ResponseEntity.status(500).body(new ApiResponse<>(false, e.getMessage(), e.getCause() != null ? e.getCause().toString() : "", null));
@@ -49,11 +49,4 @@ public class InventoryLogService {
         }
     }
 
-    public ResponseEntity<ApiResponse<List<InventoryLog>>> getAllByBranchId(Integer id) {
-        try {
-            return ResponseEntity.ok(new ApiResponse<>(true , "Successful" , "" ,repository.findByBranchId(id)));
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body(new ApiResponse<>(false , e.getMessage() , e.getCause().toString() ,null));
-        }
-    }
-}
+   }

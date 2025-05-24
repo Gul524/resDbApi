@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface InventoryLogRepository extends JpaRepository<InventoryLog, Integer> {
-    List<InventoryLog> findByBranchId(Integer branchId);
+
 }
